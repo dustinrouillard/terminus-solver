@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 import Layout from "./_layout";
 import {
@@ -37,21 +37,23 @@ export default function Index(props: Props) {
   );
 
   useEffect(() => {
-    const calculated = selections.map((val, i) =>
-      i == 0
-        ? symbols[selections[0] ?? 0].value * 2 + 11
-        : i == 1
-          ? symbols[selections[2] ?? 0].value * 2 +
-            symbols[selections[1] ?? 0].value -
-            5
-          : i == 2
-            ? symbols[selections[2] ?? 0].value +
-              symbols[selections[1] ?? 0].value -
-              symbols[selections[0] ?? 0].value
-            : 0,
-    );
-
-    setNumbers(calculated);
+    if (selections.filter((c) => c).length != 3) setNumbers([]);
+    else
+      setNumbers(
+        selections.map((val, i) =>
+          i == 0
+            ? symbols[selections[0]].value * 2 + 11
+            : i == 1
+              ? symbols[selections[2]].value * 2 +
+                symbols[selections[1]].value -
+                5
+              : i == 2
+                ? symbols[selections[2]].value +
+                  symbols[selections[1]].value -
+                  symbols[selections[0]].value
+                : 0,
+        ),
+      );
   }, [selections]);
 
   return (
