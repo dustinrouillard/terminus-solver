@@ -92,7 +92,7 @@ export default function Index(props: Props) {
 
         <div className="flex flex-col space-y-2 items-center md:max-w-4xl">
           <h2 className="text-xl text-center">
-            Select your symbols for X, Y, and Z
+            Select the symbols for X, Y, & Z
           </h2>
 
           {values.map((value, codeIndex) => (
