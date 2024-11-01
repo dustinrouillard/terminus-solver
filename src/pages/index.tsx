@@ -9,6 +9,7 @@ import {
   Symbol5,
   Symbol6,
 } from "../components/symbols";
+import Link from "next/link";
 
 interface Props {}
 
@@ -37,7 +38,8 @@ export default function Index(props: Props) {
   );
 
   useEffect(() => {
-    if (selections.filter((c) => c).length != 3) setNumbers([]);
+    if (selections.filter((c) => typeof c != "undefined").length != 3)
+      setNumbers([]);
     else
       setNumbers(
         selections.map((val, i) =>
@@ -71,13 +73,19 @@ export default function Index(props: Props) {
 
           <div className="flex flex-row space-x-3 justify-center">
             <span className="text-6xl bg-neutral-800 rounded-lg p-4">
-              {numbers?.[0]?.toString().padStart(2, "0") ?? "00"}
+              {Math.abs(numbers?.[0] ?? 0)
+                .toString()
+                .padStart(2, "0")}
             </span>
             <span className="text-6xl bg-neutral-800 rounded-lg p-4">
-              {numbers?.[1]?.toString().padStart(2, "0") ?? "00"}
+              {Math.abs(numbers?.[1] ?? 0)
+                .toString()
+                .padStart(2, "0")}
             </span>
             <span className="text-6xl bg-neutral-800 rounded-lg p-4">
-              {numbers?.[2]?.toString().padStart(2, "0") ?? "00"}
+              {Math.abs(numbers?.[2] ?? 0)
+                .toString()
+                .padStart(2, "0")}
             </span>
           </div>
         </div>
@@ -100,6 +108,19 @@ export default function Index(props: Props) {
               ))}
             </span>
           ))}
+        </div>
+
+        <div className="flex flex-col justify-center">
+          <p className="opacity-40">
+            Made by{" "}
+            <Link
+              href="https://dstn.to"
+              target="_blank"
+              className="underline text-blue-400"
+            >
+              dstn.to
+            </Link>
+          </p>
         </div>
       </div>
     </Layout>
