@@ -69,13 +69,13 @@ export default function Index(props: Props) {
 
           <div className="flex flex-row space-x-3 justify-center">
             <span className="text-6xl bg-neutral-800 rounded-lg p-4">
-              {numbers?.[0]?.toString().padStart(2, "0")}
+              {numbers?.[0]?.toString().padStart(2, "0") ?? "00"}
             </span>
             <span className="text-6xl bg-neutral-800 rounded-lg p-4">
-              {numbers?.[1]?.toString().padStart(2, "0")}
+              {numbers?.[1]?.toString().padStart(2, "0") ?? "00"}
             </span>
             <span className="text-6xl bg-neutral-800 rounded-lg p-4">
-              {numbers?.[2]?.toString().padStart(2, "0")}
+              {numbers?.[2]?.toString().padStart(2, "0") ?? "00"}
             </span>
           </div>
         </div>
