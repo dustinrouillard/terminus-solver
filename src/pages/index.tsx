@@ -121,6 +121,8 @@ export default function Index(props: Props) {
               dstn.to
             </Link>
           </p>
+
+          <p>Math is simple, but code is life.</p>
         </div>
       </div>
     </Layout>
