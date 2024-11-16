@@ -5,7 +5,10 @@ export function Meta() {
       <meta name="author" content="Dustin Rouillard" />
       <meta name="rating" content="General" />
       <meta name="url" content="https://terminus.dstn.to" />
-      <meta name="description" content="Calculator for Terminus Easter Egg" />
+      <meta
+        name="description"
+        content="Calculator for Terminus Easter Egg on Black Ops 6 Zombies"
+      />
       <meta name="twitter:creator" content="@dustinrouillard" />
       <meta name="twitter:site" content="@dustinrouillard" />
       <meta
