@@ -65,7 +65,9 @@ export default function Index(props: Props) {
           <h1 className="font-bold text-3xl text-center">
             Terminus Equation Calculator
           </h1>
-          <h2 className="text-2xl text-center">for Black Ops 6</h2>
+          <h2 className="text-xl text-center">
+            for the free beamsmasher step of the easter egg
+          </h2>
         </div>
 
         <div className="flex flex-col justify-center space-y-2">
@@ -100,7 +102,7 @@ export default function Index(props: Props) {
               <p className="font-bold text-3xl">{value}:</p>
               {symbols.map((symbol, index) => (
                 <symbol.component
-                  className={`transition-all bg-neutral-700 rounded-md cursor-pointer hover:brightness-75 ${selections[codeIndex] == index ? "box-border border-2 border-green-500 brightness-75" : "border-2 border-white/40"}`}
+                  className={`transition-all bg-neutral-700 rounded-md cursor-pointer hover:brightness-75 ${selections[codeIndex] == index ? "box-border border-4 border-green-500 brightness-75" : "border-2 border-white/40"}`}
                   onClick={() => {
                     setSelection(codeIndex, index);
                   }}
@@ -110,19 +112,37 @@ export default function Index(props: Props) {
           ))}
         </div>
 
-        <div className="flex flex-col justify-center">
-          <p className="opacity-40">
-            Made by{" "}
+        <div className="flex flex-col md:flex-row justify-between space-y-4 md:space-y-0">
+          <div className="flex flex-col md:text-left">
+            <p>Math is simple, but code is life.</p>
+
+            <p className="opacity-40">
+              Made by{" "}
+              <Link
+                href="https://dstn.to"
+                target="_blank"
+                className="underline text-blue-400"
+              >
+                dstn.to
+              </Link>
+            </p>
+          </div>
+          <div className="flex flex-col md:text-right">
             <Link
-              href="https://dstn.to"
+              href="https://dstn.to/VqvH5B0a"
               target="_blank"
               className="underline text-blue-400"
             >
-              dstn.to
+              Terminus Easter Egg Guide (NoahJ456)
             </Link>
-          </p>
-
-          <p>Math is simple, but code is life.</p>
+            <Link
+              href="https://dstn.to/ur1zBgZw"
+              target="_blank"
+              className="underline text-blue-400"
+            >
+              Beamsmasher Guide (MrRoflWaffles)
+            </Link>
+          </div>
         </div>
       </div>
     </Layout>
