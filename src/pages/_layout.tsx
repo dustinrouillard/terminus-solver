@@ -4,6 +4,7 @@ import { PropsWithChildren } from "react";
 import { Meta } from "../components/meta";
 
 export interface Props extends PropsWithChildren {
+  page_title?: string;
   page_class?: string;
 }
 
@@ -11,7 +12,7 @@ export default function Layout(props: Props) {
   return (
     <>
       <Head>
-        <title>Terminus Calculator</title>
+        <title>{props.page_title ?? "dstn.to"} - Black Ops 6 Utilities</title>
 
         <Meta />
 
