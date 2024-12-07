@@ -25,7 +25,7 @@ const solutions: { [key: string]: Solution } = {
     element: "fire",
   },
   horn: {
-    astrology: "leo",
+    astrology: "aries",
     element: "fire",
   },
   scorpion: {
