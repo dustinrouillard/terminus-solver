@@ -5,10 +5,14 @@ export interface ITool {
   description: string;
   path: string;
   color: string;
-  icon: JSX.Element;
+  icon: (random?: number) => JSX.Element;
 }
 
-export function Tool({ tool }: { tool: ITool }) {
+interface Props {
+  runeToolRandom: number;
+}
+
+export function Tool({ tool, runeToolRandom }: { tool: ITool } & Props) {
   return (
     <Link href={tool.path}>
       <div
@@ -19,8 +23,8 @@ export function Tool({ tool }: { tool: ITool }) {
           <h3 className="text-lg font-bold line-clamp-1">{tool.name}</h3>
           <p className="text-wrap line-clamp-2">{tool.description}</p>
         </div>
-        <div className="flex flex-row w-36">
-          {tool.icon ? tool.icon : <></>}
+        <div className="flex flex-row w-36 p-1">
+          {tool.icon ? tool.icon(runeToolRandom) : <></>}
         </div>
       </div>
     </Link>

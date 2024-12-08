@@ -3,6 +3,7 @@ import { Symbol2 } from "../components/terminusSymbols";
 import { ITool, Tool } from "../components/tool";
 import Layout from "./_layout";
 import { ScorpionSymbol } from "../components/citadelleSymbols";
+import { Symbols } from "../components/runicSymbols";
 
 export const Tools: ITool[] = [
   {
@@ -10,18 +11,33 @@ export const Tools: ITool[] = [
     description: "Calculator for the Terminus Beamsmasher Easter Egg",
     color: "#EBD9BE",
     path: "/terminus",
-    icon: (<Symbol2 />) as JSX.Element,
+    icon: () => (<Symbol2 />) as JSX.Element,
   },
   {
     name: "Raven Sword Puzzle Helper",
     description: "Puzzle helpers for the Citadelle Raven Sword Upgrade",
     color: "#3FF5FF",
     path: "/citadelle",
-    icon: (<ScorpionSymbol />) as JSX.Element,
+    icon: () => (<ScorpionSymbol />) as JSX.Element,
+  },
+  {
+    name: "Wall Puzzle Tracker",
+    description:
+      "Helps you keep track of the symbols for the wall puzzle part of the main quest on Citadelle",
+    color: "#60a5fa",
+    path: "/citadelle-runes",
+    icon: (random: number) => {
+      const Symbol = Symbols[random];
+      return (<Symbol />) as JSX.Element;
+    },
   },
 ];
 
-export default function Index() {
+interface Props {
+  runeToolRandom: number;
+}
+
+export default function Index(props: Props) {
   return (
     <>
       <Layout>
@@ -31,7 +47,7 @@ export default function Index() {
 
         <div className="grid xl:grid-cols-2 xl:grid-rows-1 xl:grid-flow-row overflow-scroll p-2 rounded-lg bg-neutral-300 dark:bg-neutral-800">
           {Tools.map((tool, index) => (
-            <Tool key={index} tool={tool} />
+            <Tool key={index} tool={tool} {...props} />
           ))}
         </div>
 
@@ -56,6 +72,8 @@ export default function Index() {
 
 export function getServerSideProps() {
   return {
-    props: {},
+    props: {
+      runeToolRandom: Math.floor(Math.random() * Symbols.length),
+    },
   };
 }
