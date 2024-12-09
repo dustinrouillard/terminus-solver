@@ -53,7 +53,7 @@ export default function Index(props: Props) {
 
   return (
     <Layout
-      page_class="flex justify-center h-dvh my-8 py-8"
+      page_class="flex justify-center h-dvh my-8 py-2"
       page_title="Citadelle Des Morts - Raven Puzzle"
     >
       <div className="font-bold space-y-6">
