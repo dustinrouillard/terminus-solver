@@ -17,7 +17,7 @@ export const Tools: ITool[] = [
     name: "Raven Sword Puzzle Helper",
     description: "Puzzle helpers for the Citadelle Raven Sword Upgrade",
     color: "#3FF5FF",
-    path: "/citadelle",
+    path: "/citadelle-raven",
     icon: () => (<ScorpionSymbol />) as JSX.Element,
   },
   {
