@@ -1,4 +1,4 @@
-import { SVGProps, useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 
 import Layout from "./_layout";
 import Link from "next/link";
@@ -33,10 +33,6 @@ export default function Index(props: Props) {
     [overrideNextIndex, firstEmpty, currentIndex],
   );
 
-  useEffect(() => {
-    console.log(selectedRunes, "runes");
-  }, [selectedRunes]);
-
   const selectRune = useCallback(
     (rune: number) => {
       if (nextIndex == options) return;
@@ -57,11 +53,11 @@ export default function Index(props: Props) {
 
   return (
     <Layout
-      page_class="flex justify-center"
+      page_class="flex justify-center h-dvh my-8 py-8"
       page_title="Citadelle Des Morts - Raven Puzzle"
     >
       <div className="font-bold space-y-6">
-        <div>
+        <div className="my-4">
           <h1 className="font-bold text-3xl text-center">
             Citadelle Des Morts
           </h1>
@@ -81,10 +77,10 @@ export default function Index(props: Props) {
           </div>
 
           <div className="flex justify-center rounded-md p-1 bg-neutral-800">
-            <div className="grid grid-cols-5">
+            <div className="grid grid-cols-4 lg:grid-cols-5">
               {Symbols.map((Symbol, idx) => (
                 <span
-                  className={`w-32 h-32 p-5 rounded-md bg-neutral-700 m-1 hover:brightness-75 cursor-pointer relative ${
+                  className={`h-24 lg:w-32 lg:h-32 p-5 rounded-md bg-neutral-700 m-1 hover:brightness-75 cursor-pointer relative ${
                     typeof selectedRunes?.find((item) => item == idx) !=
                     "undefined"
                       ? "brightness-75"
@@ -113,7 +109,7 @@ export default function Index(props: Props) {
             </div>
           </div>
 
-          <div className="flex flex-row rounded-md">
+          <div className="grid grid-cols-3">
             {new Array(options).fill(1).map((opt, idx) => {
               let Selected = Symbols[selectedRunes[idx]];
               return (
@@ -139,7 +135,7 @@ export default function Index(props: Props) {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-between space-y-4 md:space-y-0">
+        <div className="flex flex-col md:flex-row justify-between md:space-y-0 pb-16">
           <div className="flex flex-col md:text-left">
             <p className="opacity-40">
               Made by{" "}
