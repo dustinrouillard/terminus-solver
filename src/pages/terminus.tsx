@@ -59,7 +59,7 @@ export default function Index(props: Props) {
   }, [selections]);
 
   return (
-    <Layout page_class="flex justify-center">
+    <Layout page_class="flex justify-center lg:items-center h-dvh my-8 py-8">
       <div className="font-bold space-y-6">
         <div>
           <h1 className="font-bold text-3xl text-center">

@@ -55,7 +55,7 @@ export default function Index(props: Props) {
 
   return (
     <Layout
-      page_class="flex justify-center h-dvh my-8 py-8"
+      page_class="flex justify-center lg:items-center h-dvh my-8 py-8"
       page_title="Citadelle Des Morts - Raven Puzzle"
     >
       <div className="font-bold space-y-6">
@@ -71,7 +71,7 @@ export default function Index(props: Props) {
         <div className="flex flex-col items-center text-center justify-center space-y-2">
           <h2 className="text-xl text-center">Select your Artifact/Bone</h2>
 
-          <div className="grid grid-cols-2 lg:flex lg:justify-center">
+          <div className="grid grid-cols-2 lg:flex lg:justify-center lg:items-center">
             {artifacts.map((artifact, idx) => (
               <div
                 className={`flex flex-col space-y-2 items-center rounded-md bg-neutral-700 p-2 m-1 w-36 hover:brightness-75 cursor-pointer ${selectedArtifact == artifact.name.toLowerCase() ? "brightness-75" : ""}`}
