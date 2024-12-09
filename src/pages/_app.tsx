@@ -5,10 +5,10 @@ import "../assets/app.css";
 export default function App({ Component, pageProps }) {
   return (
     <PlausibleProvider
-      domain="terminus.dstn.to"
+      domain="bo6.dstn.to"
       enabled={
         typeof window != "undefined" &&
-        window.location.hostname == "terminus.dstn.to"
+        window.location.hostname == "bo6.dstn.to"
       }
       selfHosted
     >
